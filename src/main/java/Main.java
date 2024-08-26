@@ -1,49 +1,131 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-
-        System.out.println("Elpriser\n" +
-                "========\n" +
-                "1. Inmatning\n" +
-                "2. Min, Max och Medel\n" +
-                "3. Sortera\n" +
-                "4. Bästa Laddningstid (4h)\n" +
-                "e. Avsluta");
-        System.out.println("Please make your choice in the menu");
-        String choice = scanner.nextLine().toLowerCase();
-        System.out.println("You choose " + choice);
-
         HourlyPrice[] priceData = null;
+        boolean running = true;
 
-        switch (choice) {
-            case "1":
-                System.out.println("Inmatning");
-                priceData = priceInput(scanner);
-                printPriceData(priceData);
-                break;
-            case "2":
-                System.out.println("Min, Max och Medel");
-                break;
-            case "3":
-                System.out.println("Sortera");
-                break;
-            case "4":
-                System.out.println("Avsluta");
-                break;
-            case "e":
-                System.out.println("Avsluta");
-                return;
-            default:
-                System.out.println("Invalid choice, Pick something else");
-                break;
+        while (running) {
+            printMenu();
+            String choice = scanner.nextLine().toLowerCase();
+            System.out.println("you chose " + choice);
 
 
+            switch (choice) {
+                case "1":
+                    System.out.println("Inmatning");
+                    priceData = priceInput(scanner);
+                    break;
+                case "2":
+                    System.out.println("Min, Max och Medel");
+                    if (priceData != null && priceData.length > 0) {
+                        calculateMaxMidMinPrice(priceData, scanner);
+                    } else {
+                        System.out.println("Ingen data inmatad, Välj alternativ 1 för att infoga data");
+                    }
+                    break;
+                case "3":
+                    if (priceData != null && priceData.length > 0) {
+                        sortList(priceData, scanner);
+                    } else {
+                        System.out.println("Ingen data inmatad, Välj alternativ 1 för att infoga data");
+                    }
+                    break;
+                case "4":
+                    if (priceData != null && priceData.length > 0) {
+                        bestLoadingPeriod(priceData, scanner);
+                    } else {
+                        System.out.println("Ingen data inmatad, Välj alternativ 1 för att infoga data");
+                    }
+                    break;
+                case "e":
+                    System.out.println("Avsluta");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice, Pick something else");
+                    break;
+            }
         }
+    }
+
+    private static void bestLoadingPeriod(HourlyPrice[] priceData, Scanner scanner) {
+        int hourSpan = 4;
+        int n = priceData.length;
+
+        if (n < hourSpan) {
+            System.out.println("Saknas data för att göra uträningarnarna, Fyll på med mer data och försök igen");
+            return;
+        }
+
+        int minSum = 0;
+        for (int i = 0; i < hourSpan; i++) {
+            minSum += priceData[i].price;
+        }
+        int currentSum = minSum;
+        int bestValueStartinghour = 0;
+
+        for (int i = 1; i <= n - hourSpan; i++) {
+            currentSum = currentSum - priceData[i - 1].price + priceData[i + hourSpan - 1].price;
+
+            if (currentSum < minSum) {
+                minSum = currentSum;
+                bestValueStartinghour = i;
+            }
+        }
+        int endHour = (bestValueStartinghour + hourSpan) % 24;
+        System.out.println("Bästa laddningsperioden är mellan klockan: " + String.format("%02d", bestValueStartinghour) + " och " + String.format("%02d", endHour));
+        waitForEnter(scanner);
+    }
+
+    private static void sortList(HourlyPrice[] priceData, Scanner scanner) {
+        Arrays.sort(priceData);
+        printPriceData(priceData);
+        waitForEnter(scanner);
+    }
+
+    private static void calculateMaxMidMinPrice(HourlyPrice[] priceData, Scanner scanner) {
+        int minPrice = Integer.MAX_VALUE;
+        int maxPrice = Integer.MIN_VALUE;
+        int minHour = -1;
+        int maxHour = -1;
+        int total = 0;
+
+        for (HourlyPrice hp : priceData) {
+            if (hp.price < minPrice) {
+                minPrice = hp.price;
+                minHour = hp.hour;
+            }
+            if (hp.price > maxPrice) {
+                maxPrice = hp.price;
+                maxHour = hp.hour;
+            }
+            total += hp.price;
+        }
+
+        double averagePrice = total / 24.0;
+
+        System.out.println("Lägsta pris: " + minPrice + " öre, Timme: " + String.format("%02d", minHour) + "-" + String.format("%02d", (minHour + 1) % 24));
+        System.out.println("Högsta pris: " + maxPrice + " öre, Timme: " + String.format("%02d", maxHour) + "-" + String.format("%02d", (maxHour + 1) % 24));
+        System.out.println("Medelpris: " + String.format("%.2f", averagePrice) + " öre");
+        waitForEnter(scanner);
+    }
+
+
+    private static void printMenu() {
+        System.out.println("""
+                Elpriser
+                ========
+                1. Inmatning
+                2. Min, Max och Medel
+                3. Sortera
+                4. Bästa Laddningstid (4h)
+                e. Avsluta""");
+        System.out.println("Välj ett alternativ: ");
     }
 
     private static HourlyPrice[] priceInput(Scanner scanner) {
@@ -66,9 +148,9 @@ public class Main {
                 }
             }
         }
-
+        printPriceData(priceData);
+        waitForEnter(scanner);
         return priceData;
-
     }
 
     private static void printPriceData(HourlyPrice[] priceData) {
@@ -78,16 +160,25 @@ public class Main {
                 System.out.println("Timme: " + String.format("%02d", hp.hour) + "-" + String.format("%02d ", nextHour) + "Pris: " + (hp.price) + " Öre");
             }
         }
+    }
 
+    private static void waitForEnter(Scanner scanner) {
+        System.out.println("Tryck på enter för att komma tillbaka till huvudmenyn");
+        scanner.nextLine();
     }
 }
 
-class HourlyPrice {
+class HourlyPrice implements Comparable<HourlyPrice> {
     int hour;
     int price;
 
     HourlyPrice(int hour, int price) {
         this.hour = hour;
         this.price = price;
+    }
+
+    @Override
+    public int compareTo(HourlyPrice other) {
+        return Integer.compare(this.price, other.price);
     }
 }
