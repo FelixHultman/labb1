@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4cdf4a5-de6a-4fd3-a167-fc86326e2554" name="Changes" comment="Menu and switch">
+    <list default="true" id="a4cdf4a5-de6a-4fd3-a167-fc86326e2554" name="Changes" comment="Fixed hours and price output-format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
@@ -22,12 +22,12 @@
     &quot;assignee&quot;: &quot;FelixHultman&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/FelixHultman/labb1.git&quot;,
-    &quot;accountId&quot;: &quot;6b5c4e41-b34a-4adc-b995-4f8d626dcee1&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/FelixHultman/labb1.git",
+    "accountId": "a959befd-733f-43a5-aa40-e0c1551e91e2"
   }
-}</component>
+}]]></component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="l8ypwz4n" />
   </component>
@@ -69,8 +69,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
@@ -86,6 +86,7 @@
       <workItem from="1724315278387" duration="11230000" />
       <workItem from="1724399570801" duration="5362000" />
       <workItem from="1724655959348" duration="10866000" />
+      <workItem from="1724744808452" duration="1545000" />
     </task>
     <task id="LOCAL−00001" summary="Menu and switch">
       <option name="closed" value="true" />

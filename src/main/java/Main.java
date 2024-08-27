@@ -78,7 +78,12 @@ public class Main {
             }
         }
         int endHour = (bestValueStartinghour + hourSpan) % 24;
-        System.out.println("Bästa laddningsperioden är mellan klockan: " + String.format("%02d", bestValueStartinghour) + " och " + String.format("%02d", endHour));
+        System.out.println("Bästa laddningsperioden är mellan klockan: " +
+                String.format("%02d", bestValueStartinghour) +
+                " och " +
+                String.format("%02d", endHour) +
+                "\nMedelvärdet är då " +
+                (minSum / (double) hourSpan) + " öre");
         waitForEnter(scanner);
     }
 
