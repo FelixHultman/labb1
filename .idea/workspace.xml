@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4cdf4a5-de6a-4fd3-a167-fc86326e2554" name="Changes" comment="fixed averagevalue for the bestvaluehours">
+    <list default="true" id="a4cdf4a5-de6a-4fd3-a167-fc86326e2554" name="Changes" comment="Small fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
@@ -87,7 +87,7 @@
       <workItem from="1724399570801" duration="5362000" />
       <workItem from="1724655959348" duration="10866000" />
       <workItem from="1724744808452" duration="1545000" />
-      <workItem from="1724746383108" duration="2894000" />
+      <workItem from="1724746383108" duration="5433000" />
     </task>
     <task id="LOCAL−00001" summary="Menu and switch">
       <option name="closed" value="true" />
@@ -103,7 +103,14 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1724746632963</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Small fixes">
+      <option name="closed" value="true" />
+      <created>1724754942285</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1724754942285</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +119,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Menu and switch" />
     <MESSAGE value="fixed averagevalue for the bestvaluehours" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed averagevalue for the bestvaluehours" />
+    <MESSAGE value="Small fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small fixes" />
   </component>
 </project>

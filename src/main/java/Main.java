@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -58,7 +57,7 @@ public class Main {
         int n = priceData.length;
 
         if (n < hourSpan) {
-            System.out.println("Saknas data för att göra uträningarnarna, Fyll på med mer data och försök igen");
+            System.out.println("Saknas data för att göra uträkningar, Fyll på med mer data och försök igen");
             return;
         }
 
