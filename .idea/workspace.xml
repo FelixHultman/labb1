@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4cdf4a5-de6a-4fd3-a167-fc86326e2554" name="Changes" comment="Fixed hours and price output-format">
+    <list default="true" id="a4cdf4a5-de6a-4fd3-a167-fc86326e2554" name="Changes" comment="fixed averagevalue for the bestvaluehours">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
@@ -22,12 +22,12 @@
     &quot;assignee&quot;: &quot;FelixHultman&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/FelixHultman/labb1.git",
-    "accountId": "a959befd-733f-43a5-aa40-e0c1551e91e2"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/FelixHultman/labb1.git&quot;,
+    &quot;accountId&quot;: &quot;a959befd-733f-43a5-aa40-e0c1551e91e2&quot;
   }
-}]]></component>
+}</component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="l8ypwz4n" />
   </component>
@@ -87,6 +87,7 @@
       <workItem from="1724399570801" duration="5362000" />
       <workItem from="1724655959348" duration="10866000" />
       <workItem from="1724744808452" duration="1545000" />
+      <workItem from="1724746383108" duration="2894000" />
     </task>
     <task id="LOCAL−00001" summary="Menu and switch">
       <option name="closed" value="true" />
@@ -95,7 +96,14 @@
       <option name="presentableId" value="LOCAL−00001" />
       <updated>1724316449328</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL−00002" summary="fixed averagevalue for the bestvaluehours">
+      <option name="closed" value="true" />
+      <created>1724746632963</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1724746632963</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Menu and switch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Menu and switch" />
+    <MESSAGE value="fixed averagevalue for the bestvaluehours" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed averagevalue for the bestvaluehours" />
   </component>
 </project>

@@ -77,11 +77,11 @@ public class Main {
                 bestValueStartinghour = i;
             }
         }
-        int endHour = (bestValueStartinghour + hourSpan) % 24;
-        System.out.println("Bästa laddningsperioden är mellan klockan: " +
+
+        System.out.println("Börja ladda din bil klockan: " +
                 String.format("%02d", bestValueStartinghour) +
-                " och " +
-                String.format("%02d", endHour) +
+                " för att optimera ditt timpris"
+                +
                 "\nMedelvärdet är då " +
                 (minSum / (double) hourSpan) + " öre");
         waitForEnter(scanner);
