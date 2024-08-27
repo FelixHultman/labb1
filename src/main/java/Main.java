@@ -22,21 +22,21 @@ public class Main {
                 case "2":
                     System.out.println("Min, Max och Medel");
                     if (priceData != null && priceData.length > 0) {
-                        calculateMaxMidMinPrice(priceData, scanner);
+                        calculateMaxMidMinPrice(priceData);
                     } else {
                         System.out.println("Ingen data inmatad, Välj alternativ 1 för att infoga data");
                     }
                     break;
                 case "3":
                     if (priceData != null && priceData.length > 0) {
-                        sortList(priceData, scanner);
+                        sortList(priceData);
                     } else {
                         System.out.println("Ingen data inmatad, Välj alternativ 1 för att infoga data");
                     }
                     break;
                 case "4":
                     if (priceData != null && priceData.length > 0) {
-                        bestLoadingPeriod(priceData, scanner);
+                        bestLoadingPeriod(priceData);
                     } else {
                         System.out.println("Ingen data inmatad, Välj alternativ 1 för att infoga data");
                     }
@@ -49,10 +49,13 @@ public class Main {
                     System.out.println("Invalid choice, Pick something else");
                     break;
             }
+            if (running) {
+                waitForEnter(scanner);
+            }
         }
     }
 
-    private static void bestLoadingPeriod(HourlyPrice[] priceData, Scanner scanner) {
+    private static void bestLoadingPeriod(HourlyPrice[] priceData) {
         int hourSpan = 4;
         int n = priceData.length;
 
@@ -83,16 +86,15 @@ public class Main {
                 +
                 "\nMedelvärdet är då " +
                 (minSum / (double) hourSpan) + " öre");
-        waitForEnter(scanner);
     }
 
-    private static void sortList(HourlyPrice[] priceData, Scanner scanner) {
-        Arrays.sort(priceData);
-        printPriceData(priceData);
-        waitForEnter(scanner);
+    private static void sortList(HourlyPrice[] priceData) {
+        HourlyPrice[] sortedPriceData = Arrays.copyOf(priceData, priceData.length);
+        Arrays.sort(sortedPriceData);
+        printPriceData(sortedPriceData);
     }
 
-    private static void calculateMaxMidMinPrice(HourlyPrice[] priceData, Scanner scanner) {
+    private static void calculateMaxMidMinPrice(HourlyPrice[] priceData) {
         int minPrice = Integer.MAX_VALUE;
         int maxPrice = Integer.MIN_VALUE;
         int minHour = -1;
@@ -116,7 +118,6 @@ public class Main {
         System.out.println("Lägsta pris: " + minPrice + " öre, Timme: " + String.format("%02d", minHour) + "-" + String.format("%02d", (minHour + 1) % 24));
         System.out.println("Högsta pris: " + maxPrice + " öre, Timme: " + String.format("%02d", maxHour) + "-" + String.format("%02d", (maxHour + 1) % 24));
         System.out.println("Medelpris: " + String.format("%.2f", averagePrice) + " öre");
-        waitForEnter(scanner);
     }
 
 
@@ -153,7 +154,6 @@ public class Main {
             }
         }
         printPriceData(priceData);
-        waitForEnter(scanner);
         return priceData;
     }
 
